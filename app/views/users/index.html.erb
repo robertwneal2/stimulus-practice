@@ -1,0 +1,7 @@
+<div data-controller="hello">
+  <input type="text" data-action="hello#length_check" id="text_input">
+  <span style="display:none" data-hello-target="warning">Over 10 Characters!</span>
+  <div><button data-action="hello#toggle">Toggle visable text</button></div>
+  <div data-action="click->hello#secret click->hello#toggle" data-hello-target="visable">Visable text</div>
+  <div data-hello-target="secret" style="display:none">Secret!</div>
+</div>

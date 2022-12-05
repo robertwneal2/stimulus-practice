@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_020214) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_021252) do
   create_table "cars", force: :cascade do |t|
     t.string "make"
     t.string "model"
-    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_020214) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "car_id"
+    t.index ["car_id"], name: "index_variants_on_car_id"
   end
 
 end

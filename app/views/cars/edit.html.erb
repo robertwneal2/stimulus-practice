@@ -1,0 +1,32 @@
+<div data-controller="car">
+    <%= render @car %>
+    
+    <p>
+      <strong>Variants:</strong>
+      <ul>
+        <% @car.variants.each do |variant| %>
+          <% if variant.name %>
+            <li>
+              <%= variant.name %>
+            </li>
+          <% else %>
+            <div data-car-target="addVariantForm" style="display:none">
+              <%= form_with(model: @car, method: "patch") do |form| %>
+                <%= form.fields_for :variants, @blank_variant do |variant| %>
+                  <li >
+                    <%= variant.text_field(:name) %>
+                  </li>
+                <% end %>
+              <input type="submit" value="Save New Variant">
+              <% end %>
+              <button data-action="car#add_variant">Cancel</button>
+            </div>
+          <% end %>
+        <% end %>
+      </ul>
+    </p>
+
+    <div data-car-target="addVariantButton">
+      <button data-action="car#add_variant">Add Variant</button>
+    </div>
+</div>

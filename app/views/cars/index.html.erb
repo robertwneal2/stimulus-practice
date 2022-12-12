@@ -1,0 +1,6 @@
+<% @cars.each do |car| %>
+  <%= render car%>
+  <p>  
+    <%= link_to "Edit variants", edit_car_path(car) %>
+  </p>
+<% end %>
